@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>PythonOS - instalación</title>
+</head>
+
+<body>
+    <h1>PythonOS - Instalación</h1>
+    <p>En esta guía usaremos el instalador oficial de PythonOS disponible en <a href="https://github.com/kev402">releases</a></p>
+    <h2>Uso del instalador</h2>
+    <p>Una vez descargues el instalador y lo abrás verás un terminal comprobando dependencias y que al terminar de verificar te mostrará un $ esperando respuesta, esto se debe a que el enfoque de PythonOS está orientado a algo simple y minimalista para que el usuario haga su instalación de una manera más manual, por ello no hay instalador gráfico con botones típicos de siguiente y siguiente.</p>
+    <h2>Resolviendo dependencias</h2>
+    <p>Una vez abrá el instalador se verificarán las dependencias necesarias, entre ellas curl, si curl no está instalado en el sistema NO podrá continuar con la instalación, curl se usa para ayudar a descargar archivos y si no está no podrá obtener las demás dependencias, por ello si el instalador le lanza la advertencia de que no está instalado, deberá descargar e instalar curl usted mismo y que este quedé en el PATH de su sistema operativo.</p>
+    <h2>Verificando Python y Git</h2>
+    <p>Una vez resuelto el problema con curl o si ya estaba instalado se verificará la existencia de python que obviamente es fundamental para PythonOS, mas no para el instalador, ya que a pesar de que este está hecho en python ya fue convertido en un ejecutable independiente, pero igualmente lo verifica, también verificará si tiene git ya que este si es necesario para el instalador ya que este clona el repositorio de PythonOS, si python o git no están instalados, hay un método propio en el instalador que le permitirá ello y se llama pypack.</p>
+    <h2>Usando PyPack</h2>
+    <p>Es una función incluida en el instalador que se llama escribiendo en la terminal del instalador:</p>
+    <code>pypack</code>
+    <p>Una vez dentro de la función debe ingresar el nombre del paquete a instalar teniendo en cuenta la arquitectura de su pc, es decir si es de 32 o de 64 bits, ya que entre las opciones disponibles para instalar están:</p>
+    <code>python32</code>
+    <code>python64</code>
+    <code>git32</code>
+    <code>git64</code>
+    <p>Una vez averigüe la arquitectura ingrese el nombre exacto del paquete tal y como se mostró anteriormente, si ingresa el nombre mal o incompleto ya sea sin incluir 32 o 64 o con errores de escritura le dará error y si no pudo saber si su pc es de 32 o 64 bits, recomiendo que instale la versión de 32 bits del paquete que le haga falta, así no tendrá problemas de compatibilidad.</p>
+    <p>Cuando ingrese la opción, por ejemplo python64, automáticamente el programa usará curl para descargar el ejecutable y lo abrirá, ya dentro del programa de instalación de python o git usted deberá hacer la instalación y verificar que el programa instalado haya quedado en el PATH.</p>
+    <p>Después de haber instalado todo lo necesario o de haber saltado este paso en caso de que ya tuviera todo listo, la instalación de PythonOS seguirá con la clonación del repositorio, para esto usaremos la función del instalador pygit.</p>
+    <h2>Usando PyGit</h2>
+    <p>PyGit se usa para clonar repositorios ingresando solo la url y se incluye debido a que hay dos repos donde está PythonOS:</p>
+    <code>https://github.com/kev402/PythonOS.git</code>
+    <code>https://gitlab.com/kev402/PythonOS.git</code>
+    <p>Para iniciar PyGit ingrese en la terminal del instalador:</p>
+    <code>pygit</code>
+    <p>Una vez dentro de la función, ingrese cualquiera de las dos url que se mostraron, una vez hecho PythonOS ya estará en la carpeta donde ejecutó el instalador, sin embargo PythonOS está configurado para estar en la unidad principal C:/ y no en otras rutas o en unidades portables, sin embargo puede hacer esto posible modificando las rutas del PATH, pero esto no está soportado oficialmente, para mover la carpeta a la unidad C:/ y para que la instalación no quede incompleta el instalador cuenta con la función PyMV.</p>
+    <h2>Usando PyMV</h2>
+    <p>Ingrese en la terminal del instalador:</p>
+    <code>pymv</code>
+    <p>Dentro de la función, se le pedirá ingresar la ruta destino, ya que como se dijo, tiene la libertad de poner PythonOS en la que quiera, pero no es recomendado, por lo que deberá ingresar por defecto es:</p>
+    <code>C:/</code>
+    <p>Una vez hecho esto ya tendrá PythonOS instalado correctamente ahora puede salir del instalador y abrir un terminal normal de Windows e ir al directorio de PythonOS usando:</p>
+    <code>cd C:/PythonOS</code>
+    <p>Y cuando esté dentro:</p>
+    <code>python main.py</code>
+    <p>Y listo ya podrá usar todas las utilidades de PythonOS y si no sabe como empezar puede ir a la <a href="https://kev402.github.io/pythonos-site/docs.html">documentación</a></p>
+</body>
+
+</html>

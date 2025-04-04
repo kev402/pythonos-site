@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>PythonOS</title>
+</head>
+
+<body>
+    <h1>PythonOS - Documentación de apps</h1>
+    <p>Bienvenido al mundo de PythonOS, aquí podrás guiarte entre las apps de una manera general, sin embargo, si aún tiene dudas puede hacer preguntas en el repositorio de github <a href="https://github.com/kev402/PythonOS">kev402</a></p>
+    <h2>Utilidades de carpetas y archivos</h2>
+    <p>Dentro de PythonOS se emulan rutas donde la carpeta principal es "/" y existen subcarpetas como "/system" o "/apps" todo esto gestionado gracias al archivos path.py que se encuentra en la carpeta "/system", dentro del archivo están las rutas definidas de lo que se lleva hasta el momento si usted añade nuevas carpetas en cualquier lugar del subsistema, debe modificar el archivo para que estas nuevas rutas sean accesibles por las utilidades como cd o cat.</p>
+    <h2>Usar apps</h2>
+    <p>A diferencia de las utilidades de un sistema normal que usan argumentos las utilidades de PythonOS se basan en microapps que una vez la invocas te pedirá el dato enecsario, por ejemplo si usas cat te mostrará esto:</p>
+    <pre><code>
+      ┌──[/]
+      └─$ cat
+      cat le permite leer textos en consola.
+      Ingrese la ruta del archivo:
+    </code></pre>
+    <p>Así como podrá observar en el ejemplo con cat, funcionan todas las microapps de PythonOS.</p>
+    <p>Para entender aún mejor y aprovechando este ejemplo, ingresaremos la ruta emulada de un archivo para mostrarle como se manejan las rutas correctamente evitando usar rutas de Windows:</p>
+    <code><pre>
+      ┌──[/]
+      └─$ cat
+      cat le permite leer textos en consola.
+      Ingrese la ruta del archivo: /apps/web/center.py
+      print("Hello World!")
+    </pre></code>
+    <h2>Ejecutando apps en PythonOS</h2>
+    <p>Como verá, hay una ruta dedicada a las apps python, valga la redundancia es la carpeta "/apps", aquí usted puede almacenar proyectos de python en carpetas o directamente ahí, sin embargo tenga en cuenta que a pesar de que usted puede añadir nuevas carpetas al path.py estas apps no serán accesibles desde python ya que la configuración en el archivo main.py para ejecutar apps es:</p>
+    <code>sp.run(["python", f"C:/PythonOS/apps/{comando}.py"])</code>
+    <p>Por lo que si desea ejecutar una app que está dentro de otr carpeta deberá incluir el nombre de la carpeta pero no la extensió .py del archivo, usemos el ejemplo de una app que viene integrada y es WebCenter</p>
+    <pre><code>
+      ┌──[/]
+      └─$ /web/center
+    </code></pre>
+    <p>Este comando abrirá la app que está en la ubicación /apps/web y el archivo se llama center.py, así se ahorra poner toda la carpeta y la extensión ya que por eso esto es un subsistema dedicado a Python y hecho en él.</p>
+    <h2>Sobre Dependencias</h2>
+    <p>Algo que debe tener muy en cuenta es que dentro de PythonOS se le ayuda a resolver módulos de Python que se usan directamente como por ejemplo es el caso de customtkinter que se usa en WebCenter.py sin embargo no instalamos las dependencias que requieran esas mismas dependencias, en caso de que después de haber hecho la instalación correctamente y posteriormente en la ejecucción le da algún error sobre algún módulo no definido, debe intentar instalarlo manualmente.</p>
+    <h2>Sobre VulnCode</h2>
+    <p>VulnCode es una utilidad incluida en la carpeta "/system" y que simplemente se ejecuta escribiendo "vulncode" en la terminal, lo que hace VulnCode es analizar todos los archivos de la carpeta "/apps" y sus subcarpetas en busca de posibles vulnerabilidades de código python, tenga claro eso SOLO ARCHIVOS .PY NI EJECUTABLES O DE OTRO TIPO DE LENGUAJE, el ánalisis que se realiza se basa en búsqueda de coincidencias definidas en un archivo .json si el ánalisis haya algún archivo vulnerable, le avisará al terminal ya además lo tendrá disponible en un archivo reporte.txt a la carpeta raíz "/" pero tenga en cuenta que este archivo se sobreescribe cada vez que realiza un escaneo, puede estar libre de preocupaciones, VulnCode no es una herramienta tipo antivirus que borra todo lo malo que se encuentre o que consume recursos en segundo plano, VulnCode solo se ejecuta cuando usted lo haga y usted toma la desición de que hacer con los archivos marcados como vulnerables.</p>
+    <h2>SU - PythonOS como administrador</h2>
+    <p>si ejecuta "su" en su terminal se le pedirán permisos desde Windows y se abrirá una nueva terminal, ahí será donde podrá trabajar con permisos elevados, sin embargo esto viene con un error aún no controlado, y es que una vez se inicia en modo administrador el script se ejecutará en la ruta C:/windows/System32 por lo que para volver al entorno de PythonOS y evitar hacer algún daño en esta carpeta tan crítica del sistema use cd y ponga como ruta "/" así volverá al entorno y no deberá preocuparse por hacer posibles daños en otras carpetas.</p>
+    <h2>PythonOS y Linux</h2>
+    <p>PythonOS sería una gran idea en Linux, pero de momento aún estamos pensando como hacerlo compatible entre las múltiples distros que existen, de momento solo estamos pensando en el desarrollo de una versión general pensada para distros basadas en Arch, pero esta idea aún está en desarrollo, incluso la versión ya existente de Windows es poisblemente inestable y pueden haber errores aún no manejados, por eso pensamos tener una base en Windows para hacer la adaptación en Linux.</p>
+    <h2>Otras Utilidades</h2>
+    <p>PythonOS, además de lo que se menciona aquí tiene otras utilidades pero su funcionamiento es parecido al de ejemplos ya aplicados aquí, descubra usted mismo el entorno y si encuentra algún problema puede hacer un issue en el repositorio de github.</p>
+</body>
+
+</html>
